@@ -127,6 +127,7 @@ public class RangeActivity extends FragmentActivity implements
 
         // Set default map controls
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        mMap.setLatLngBoundsForCameraTarget(DRIVING_RANGE);
         mMap.getUiSettings().setMapToolbarEnabled(false);
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
@@ -136,8 +137,6 @@ public class RangeActivity extends FragmentActivity implements
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
 
-        // Constrain the camera target to the driving range bounds.
-        //TODO:mMap.setLatLngBoundsForCameraTarget(DRIVING_RANGE);
         // Set min zoom level
         //mMap.setMinZoomPreference(17.0f);
 
