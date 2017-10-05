@@ -1,5 +1,6 @@
 package com.bigbarrels.bigswinggolf;
 
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.annotation.NonNull;
@@ -7,6 +8,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -333,6 +335,23 @@ public class RangeActivity extends FragmentActivity implements
                         if (task.isSuccessful()) {
                             // Set the map's camera position to the current location of the device.
                             mLastKnownLocation = task.getResult();
+
+                            // Check to see if device location is within the map bounds.
+                            // If not then close the app.
+                            LatLng mCoordinates = new LatLng(
+                                    mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude());
+                            if (!DRIVING_RANGE.contains(mCoordinates)) {
+                                new AlertDialog.Builder(RangeActivity.this)
+                                        .setTitle("Location Error")
+                                        .setMessage("You are not at Big Swing Golf Center.")
+                                        .setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                finish();
+                                            }
+                                        })
+                                        .show();
+                            }
+
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                     new LatLng(mLastKnownLocation.getLatitude(),
                                             mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
