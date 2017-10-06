@@ -94,7 +94,7 @@ public class RangeActivity extends FragmentActivity implements
 
         // For ad initialization.
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
-        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
     }
