@@ -194,7 +194,6 @@ public class RangeActivity extends FragmentActivity implements
 
     /**
      * Called when a user clicks an empty spot on the map.
-     * TODO: Possibly change toasts to snackbars.
      */
     @Override
     public void onMapClick(LatLng latLng)
