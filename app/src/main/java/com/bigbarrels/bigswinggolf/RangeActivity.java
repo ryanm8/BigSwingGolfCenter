@@ -337,7 +337,7 @@ public class RangeActivity extends FragmentActivity implements
 
                             // Check to see if device location is within the map bounds.
                             // If not then close the app.
-                            LatLng mCoordinates = new LatLng(
+                            /*LatLng mCoordinates = new LatLng(
                                     mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude());
                             if (!DRIVING_RANGE.contains(mCoordinates)) {
                                 new AlertDialog.Builder(RangeActivity.this)
@@ -349,7 +349,7 @@ public class RangeActivity extends FragmentActivity implements
                                             }
                                         })
                                         .show();
-                            }
+                            }*/
 
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                     new LatLng(mLastKnownLocation.getLatitude(),
