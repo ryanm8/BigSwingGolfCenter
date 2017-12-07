@@ -71,8 +71,8 @@ public class RangeActivity extends FragmentActivity implements
     private static final LatLng YELLOW = new LatLng(39.768602, -75.111228);
 
     // Driving Range boundaries
-    private static final LatLngBounds DRIVING_RANGE = new LatLngBounds(
-            new LatLng(39.766414, -75.113393), new LatLng(39.770170, -75.109622));
+    //private static final LatLngBounds DRIVING_RANGE = new LatLngBounds(
+            //new LatLng(39.766414, -75.113393), new LatLng(39.770170, -75.109622));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +129,7 @@ public class RangeActivity extends FragmentActivity implements
 
         // Set default map controls
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-        mMap.setLatLngBoundsForCameraTarget(DRIVING_RANGE);
+        //mMap.setLatLngBoundsForCameraTarget(DRIVING_RANGE);
         mMap.getUiSettings().setMapToolbarEnabled(false);
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
@@ -337,7 +337,7 @@ public class RangeActivity extends FragmentActivity implements
 
                             // Check to see if device location is within the map bounds.
                             // If not then close the app.
-                            LatLng mCoordinates = new LatLng(
+                            /*LatLng mCoordinates = new LatLng(
                                     mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude());
                             if (!DRIVING_RANGE.contains(mCoordinates)) {
                                 new AlertDialog.Builder(RangeActivity.this)
@@ -349,7 +349,7 @@ public class RangeActivity extends FragmentActivity implements
                                             }
                                         })
                                         .show();
-                            }
+                            }*/
 
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                     new LatLng(mLastKnownLocation.getLatitude(),
